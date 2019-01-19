@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_build:
+    - docker build -t romanost85/docker-react -f Dockerfile.dev .
+    
+script:
+    - docker run romanost85/docker-react npm run test -- --coverage
